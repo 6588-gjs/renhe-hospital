@@ -3,26 +3,37 @@ const path = require("path");
 
 const project = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(project, "index.html"), "utf8");
-const ward = fs.readFileSync(path.join(project, "assets", "ward-0317.png")).toString("base64");
-const og = fs.readFileSync(path.join(project, "public", "og.png")).toString("base64");
 const output = path.join(project, "dist", "server");
+const assetFiles = [
+  ["assets/ward-0317.png", "image/png"],
+  ["assets/hospital-exterior.webp", "image/webp"],
+  ["assets/burned-report.webp", "image/webp"],
+  ["assets/subject-s017.webp", "image/webp"],
+  ["assets/operating-room.webp", "image/webp"],
+  ["assets/b3-corridor.webp", "image/webp"],
+  ["assets/zero-excavation.webp", "image/webp"],
+  ["assets/subject-s048.webp", "image/webp"],
+  ["public/og.png", "image/png"]
+];
+const assetEntries = assetFiles.map(([file, type]) => {
+  const route = file === "public/og.png" ? "/og.png" : `/${file}`;
+  const data = fs.readFileSync(path.join(project, file)).toString("base64");
+  return `${JSON.stringify(route)}:{type:${JSON.stringify(type)},data:Uint8Array.from(atob(${JSON.stringify(data)}),c=>c.charCodeAt(0))}`;
+}).join(",");
 
 fs.rmSync(path.join(project, "dist"), { recursive: true, force: true });
 fs.mkdirSync(output, { recursive: true });
 
 const worker = `
 const page = ${JSON.stringify(html)};
-const ward = Uint8Array.from(atob(${JSON.stringify(ward)}), c => c.charCodeAt(0));
-const og = Uint8Array.from(atob(${JSON.stringify(og)}), c => c.charCodeAt(0));
+const assets = {${assetEntries}};
 
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    if (url.pathname === "/assets/ward-0317.png") {
-      return new Response(ward, { headers: { "content-type": "image/png", "cache-control": "public, max-age=31536000, immutable" } });
-    }
-    if (url.pathname === "/og.png") {
-      return new Response(og, { headers: { "content-type": "image/png", "cache-control": "public, max-age=86400" } });
+    const asset = assets[url.pathname];
+    if (asset) {
+      return new Response(asset.data, { headers: { "content-type": asset.type, "cache-control": "public, max-age=31536000, immutable" } });
     }
     if (url.pathname !== "/" && url.pathname !== "/index.html") {
       return new Response("Archive record not found.", { status: 404 });
