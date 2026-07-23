@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090a09">
+  <meta name="description" content="安城市人和医院在线档案馆。一段被封存于1998年的调查记录。">
+  <meta property="og:title" content="人和医院在线档案馆">
+  <meta property="og:description" content="一段被封存于1998年的调查记录。不要搜索你不想知道的事。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="__ORIGIN__/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="人和医院在线档案馆">
+  <meta name="twitter:description" content="一段被封存于1998年的调查记录。">
+  <meta name="twitter:image" content="__ORIGIN__/og.png">
+  <title>人和医院在线档案馆</title>
+  <style>
+    :root{
+      --bg:#090a09;--panel:#101210;--paper:#d1c9b4;--ink:#c8c8c2;--muted:#777a74;
+      --line:#292c28;--red:#8b1717;--red2:#bf3832;--green:#758776;--serif:"Noto Serif SC","Songti SC","SimSun",serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--serif);overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,#0004 4px);opacity:.25}
+    body::after{content:"";position:fixed;inset:-40%;z-index:49;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain .18s steps(2) infinite}
+    @keyframes grain{to{transform:translate(3%,2%)}}
+    button,input{font:inherit}
+    button{color:inherit}
+    .shell{width:min(1120px,calc(100% - 40px));margin:auto}
+    .topbar{height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font:11px/1.2 ui-monospace,Consolas,monospace;letter-spacing:.12em;color:var(--muted)}
+    .brand{color:#aaa;font-weight:700}.brand i{display:inline-block;width:7px;height:7px;margin-right:10px;border-radius:50%;background:var(--red2);box-shadow:0 0 12px var(--red2);animation:blink 1.7s infinite}
+    @keyframes blink{50%{opacity:.2}}
+    .top-actions{display:flex;gap:10px}.icon-btn{border:1px solid var(--line);background:#0c0e0c;padding:8px 11px;cursor:pointer;letter-spacing:.08em}.icon-btn:hover,.icon-btn:focus-visible{border-color:#5a6159;outline:none}
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;min-height:480px;border-bottom:1px solid var(--line)}
+    .hero-image{position:relative;overflow:hidden;border-right:1px solid var(--line);min-height:480px}
+    .hero-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.14) brightness(.5)}
+    .hero-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,#090a09aa),radial-gradient(circle at 45% 45%,transparent,#000b)}
+    .cam{position:absolute;z-index:2;top:24px;left:24px;font:10px/1.8 ui-monospace,monospace;letter-spacing:.12em}.cam b{color:#d33}
+    .hero-copy{padding:62px 48px 52px;display:flex;flex-direction:column;justify-content:center}
+    .eyebrow{font:10px/1.2 ui-monospace,monospace;color:var(--red2);letter-spacing:.28em;text-transform:uppercase}
+    h1{margin:16px 0 22px;font-size:clamp(42px,5.4vw,72px);line-height:.95;font-weight:400;letter-spacing:.08em}
+    h1 small{display:block;margin-top:17px;font:11px/1.2 ui-monospace,monospace;letter-spacing:.28em;color:#747871}
+    .hero-copy p{max-width:440px;margin:0;color:#8b8e87;font-size:13px;line-height:2}
+    .status{display:flex;gap:24px;margin-top:38px;padding-top:19px;border-top:1px solid var(--line);font:10px/1.5 ui-monospace,monospace;color:#636861}.status strong{display:block;color:#adb1a9;font-size:13px;font-weight:400}
+    .search-zone{padding:70px 0 54px}
+    .search-label{display:flex;align-items:end;justify-content:space-between;margin-bottom:14px}.search-label h2{font-size:22px;font-weight:400;margin:0}.search-label span{font:9px/1.2 ui-monospace,monospace;color:#5f645e;letter-spacing:.18em}
+    .searchbox{display:flex;border:1px solid #3a3f39;background:#0c0f0c;box-shadow:0 14px 50px #0004;transition:.25s}
+    .searchbox:focus-within{border-color:#6a7469;box-shadow:0 14px 60px #0007,0 0 0 1px #75877633}
+    .prompt{display:grid;place-items:center;width:58px;color:#748174;font:20px ui-monospace,monospace;border-right:1px solid var(--line)}
+    #search{flex:1;min-width:0;padding:22px 20px;background:transparent;border:0;outline:0;color:#d0d4cd;font-size:17px;letter-spacing:.04em}
+    #search::placeholder{color:#555a54}
+    #submit{min-width:110px;border:0;border-left:1px solid var(--line);background:#131713;cursor:pointer;font:11px ui-monospace,monospace;letter-spacing:.16em}
+    #submit:hover{background:#1b201b;color:#fff}
+    .search-meta{display:flex;justify-content:space-between;gap:20px;margin-top:12px;font:10px/1.5 ui-monospace,monospace;color:#565b55}
+    .hint{color:#777e75}.hint button{padding:0;border:0;background:none;color:#8f9b8e;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+    .result-wrap{min-height:470px;padding-bottom:82px}
+    .empty{display:grid;place-items:center;min-height:390px;border:1px solid var(--line);background:linear-gradient(135deg,#0d100d,#090a09);text-align:center;color:#5f645e}
+    .empty-mark{font:80px/1 Georgia,serif;color:#191d19}.empty p{font-size:13px;line-height:2;margin:12px 0}.empty small{font:9px ui-monospace,monospace;letter-spacing:.17em}
+    .result{display:none;border:1px solid var(--line);background:#0d0f0d;animation:reveal .5s ease}.result.show{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.65fr)}
+    @keyframes reveal{from{opacity:0;transform:translateY(10px)}}
+    .record{padding:42px 46px;border-right:1px solid var(--line)}
+    .record-head{display:flex;justify-content:space-between;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+    .record-id{font:10px ui-monospace,monospace;color:var(--red2);letter-spacing:.16em}.record h2{font-size:28px;font-weight:400;margin:10px 0 0}
+    .level{height:max-content;border:1px solid #43201f;padding:7px 9px;color:#9c4b45;font:9px ui-monospace,monospace;white-space:nowrap}
+    .record-body{padding-top:24px;color:#a7aaa3;font-size:14px;line-height:2;white-space:pre-line}.record-body strong{color:#d2d4cd;font-weight:400}.record-body .red{color:#b14a44}
+    .links{margin-top:29px;padding:19px 20px;border-left:2px solid #54201e;background:#120e0d;color:#8a8d86;font:11px/1.9 ui-monospace,monospace}
+    .links button{border:0;background:none;padding:0;color:#a6b0a5;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+    .artifact{position:relative;min-height:100%;overflow:hidden;background:#090a09;display:flex;align-items:center;justify-content:center;padding:34px}
+    .artifact::before{content:"ARCHIVE PREVIEW";position:absolute;top:18px;left:20px;color:#3d433d;font:9px ui-monospace,monospace;letter-spacing:.18em}
+    .photo{position:relative;width:100%;aspect-ratio:4/5;background:#191b18;box-shadow:0 18px 45px #0008;transform:rotate(-1.2deg);overflow:hidden;opacity:0;animation:photoIn 2s .15s forwards}
+    @keyframes photoIn{to{opacity:1}}
+    .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.2) contrast(1.22) brightness(.56);transform:scale(1.04)}
+    .photo::after{content:attr(data-caption);position:absolute;left:10px;right:10px;bottom:10px;padding:8px;background:#d6d0be;color:#222;font:9px ui-monospace,monospace;letter-spacing:.08em}
+    .doc{width:100%;min-height:340px;padding:32px 27px;background:#c9c0aa;color:#292820;box-shadow:0 18px 45px #0008;transform:rotate(.7deg);font:12px/1.8 ui-monospace,Consolas,monospace;opacity:0;animation:photoIn 2s .15s forwards}
+    .doc b{display:block;padding-bottom:14px;margin-bottom:16px;border-bottom:2px solid #343229;font-size:16px}.doc i{display:block;margin-top:25px;color:#721c19;font-family:var(--serif);font-size:15px;transform:rotate(-2deg)}.redaction{background:#222;color:#222;padding:0 18px}
+    .error{display:none;min-height:360px;border:1px solid #38201f;background:#100c0c;padding:45px}.error.show{display:block;animation:reveal .4s}.error-code{font:62px/1 ui-monospace,monospace;color:#381615}.error h2{font-weight:400}.error p{color:#8c817e;line-height:2}
+    .progress-card{position:sticky;bottom:0;z-index:25;background:#0b0d0bea;border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+    .progress-inner{width:min(1120px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;padding:17px 0}
+    .progress-label{font:10px ui-monospace,monospace;color:#7c817a;white-space:nowrap}.progress-label strong{color:#c3c7bf;font-size:13px}
+    .bar{height:3px;background:#242824;overflow:hidden}.bar i{display:block;width:0;height:100%;background:#8d2a27;box-shadow:0 0 12px #a22424;transition:width .7s ease}
+    .archive-btn{border:0;background:none;color:#858b83;font:10px ui-monospace,monospace;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+    .drawer{position:fixed;z-index:70;inset:0 0 0 auto;width:min(420px,92vw);padding:36px;background:#0c0e0c;border-left:1px solid var(--line);box-shadow:-20px 0 70px #000b;transform:translateX(105%);transition:.35s;overflow:auto}.drawer.open{transform:none}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.drawer h2{font-size:23px;font-weight:400}.drawer-close{border:0;background:none;font-size:25px;cursor:pointer}
+    .archive-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}.archive-item{display:flex;justify-content:space-between;padding:16px;background:#101310;border:0;text-align:left;cursor:pointer;font-size:12px}.archive-item:hover{background:#171a17}.archive-item span{font:9px ui-monospace,monospace;color:#61675f}.archive-item.lock{color:#4b4e49;cursor:not-allowed}
+    .audio-note{margin-top:32px;color:#565b55;font:10px/1.8 ui-monospace,monospace}
+    .shock{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:#030303;overflow:hidden}.shock.show{display:grid;animation:shake .12s steps(2) 9}.shock img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(2.1) brightness(.35);animation:zoom 1.15s ease-out}.shock-text{position:absolute;color:#d5d5cd;font-size:clamp(34px,8vw,100px);letter-spacing:.15em;text-shadow:0 0 16px #000}
+    @keyframes shake{50%{transform:translate(8px,-5px)}}@keyframes zoom{from{transform:scale(1.65);filter:invert(1) contrast(3)}to{transform:scale(1)}}
+    .ending{position:fixed;inset:0;z-index:110;display:none;overflow:auto;background:#070807;color:#c9cbc5;padding:30px}.ending.show{display:grid;place-items:center}.ending-box{width:min(720px,100%);text-align:center}.ending .eyebrow{margin-bottom:22px}.ending h2{font-size:clamp(38px,7vw,76px);font-weight:400;margin:0 0 20px}.ending p{color:#898d86;line-height:2}.choices{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:36px}.choices button{padding:14px 22px;border:1px solid #3b403a;background:#101310;cursor:pointer}.choices button:hover{border-color:#8f2925}.ending-result{display:none;margin-top:35px;padding-top:30px;border-top:1px solid var(--line);color:#b0b2ab}.ending-result.show{display:block}.ending-close{margin-top:30px;border:0;background:none;color:#70766f;text-decoration:underline;cursor:pointer}
+    .glitch{animation:glitch .11s steps(2) 6}@keyframes glitch{50%{transform:translateX(4px);filter:invert(.12)}}
+    @media(max-width:760px){
+      .shell{width:min(100% - 24px,1120px)}.topbar{height:58px}.brand{font-size:9px}.top-actions .label{display:none}
+      .hero{grid-template-columns:1fr}.hero-image{min-height:44vh;border-right:0;border-bottom:1px solid var(--line)}.hero-copy{padding:38px 24px 42px}
+      .search-zone{padding:48px 0 38px}.search-label span{display:none}.prompt{width:44px}.searchbox #search{padding:18px 13px;font-size:14px}.searchbox #submit{min-width:68px;font-size:9px}
+      .search-meta{display:block}.hint{margin-top:8px}.result.show{grid-template-columns:1fr}.record{padding:30px 23px;border-right:0;border-bottom:1px solid var(--line)}.record h2{font-size:23px}.artifact{min-height:390px;padding:35px 46px}
+      .progress-inner{width:calc(100% - 24px);grid-template-columns:auto 1fr;gap:13px}.archive-btn{grid-column:1/-1;text-align:right}.result-wrap{padding-bottom:55px}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <div class="brand"><i></i>人和医院 // ARCHIVE NODE 189</div>
+    <div class="top-actions">
+      <button class="icon-btn" id="audio" aria-pressed="false">◌ <span class="label">环境音：关闭</span></button>
+      <button class="icon-btn" id="reset" title="清除本机调查记录">重置</button>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-image">
+        <img src="assets/ward-0317.png" alt="人和医院废弃走廊监控画面">
+        <div class="cam"><b>● REC</b><br>RENHE HOSPITAL / EAST WING<br>CAM-03 · SIGNAL LOST</div>
+      </div>
+      <div class="hero-copy">
+        <div class="eyebrow">安城市地方志数字化工程 / 已停止维护</div>
+        <h1>人和医院<small>在线档案馆 · 1972—1998</small></h1>
+        <p>本站保存人和医院旧址的公开记录。因原始数据库部分损坏，请输入准确关键词检索。你在这里看到的内容从未经过完整核验。</p>
+        <div class="status"><div>节点状态<strong>只读 / 不稳定</strong></div><div>最后同步<strong>1999.03.15</strong></div></div>
+      </div>
+    </section>
+
+    <section class="search-zone" aria-labelledby="search-title">
+      <div class="search-label"><h2 id="search-title">检索封存档案</h2><span>SEARCH IS BEING LOGGED</span></div>
+      <form class="searchbox" id="form">
+        <span class="prompt" aria-hidden="true">›</span>
+        <input id="search" autocomplete="off" spellcheck="false" aria-label="输入档案关键词" placeholder="">
+        <button id="submit" type="submit">检索</button>
+      </form>
+      <div class="search-meta">
+        <span>仅支持精确关键词 · 搜索记录保存在当前设备</span>
+        <span class="hint" id="hint">起始线索：公众号文章提到的医院名称</span>
+      </div>
+    </section>
+
+    <section class="result-wrap" aria-live="polite">
+      <div class="empty" id="empty">
+        <div><div class="empty-mark">⌁</div><p>等待检索请求<br>不要搜索你不想知道的事。</p><small>ARCHIVE NODE READY</small></div>
+      </div>
+      <article class="result" id="result">
+        <div class="record">
+          <div class="record-head"><div><div class="record-id" id="recordId"></div><h2 id="recordTitle"></h2></div><span class="level" id="level"></span></div>
+          <div class="record-body" id="recordBody"></div>
+          <div class="links" id="links"></div>
+        </div>
+        <aside class="artifact" id="artifact"></aside>
+      </article>
+      <div class="error" id="error"><div class="error-code">404</div><h2>档案中没有这个词。</h2><p>数据库拒绝模糊检索。请检查关键词，或回到已发现的档案寻找被明确标出的名称、地点、日期与编号。</p></div>
+    </section>
+  </main>
+
+  <div class="progress-card">
+    <div class="progress-inner">
+      <div class="progress-label">已解锁 <strong id="count">0 / 25</strong></div>
+      <div class="bar" aria-label="调查进度"><i id="bar"></i></div>
+      <button class="archive-btn" id="openArchive">查看调查记录 →</button>
+    </div>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><div><div class="eyebrow">LOCAL CASE FILE</div><h2>调查记录</h2></div><button class="drawer-close" aria-label="关闭">×</button></div>
+    <div class="archive-list" id="archiveList"></div>
+    <p class="audio-note">每一次有效检索都会永久写入当前设备。档案馆没有账号，也不需要知道你是谁。<br><br>至少，公开说明是这样写的。</p>
+  </aside>
+
+  <div class="shock" id="shock" aria-hidden="true"><img src="assets/ward-0317.png" alt=""><div class="shock-text">找到你了</div></div>
+
+  <section class="ending" id="ending" aria-hidden="true">
+    <div class="ending-box">
+      <div class="eyebrow">SUBJECT S-048 / FILE CREATED</div>
+      <h2>门没有关上。</h2>
+      <p>你搜索了这些关键词。你看见了它的存在。<br>人和医院为你准备了一张靠窗的病床。</p>
+      <div class="choices" id="choices">
+        <button data-end="publish">公开这些档案</button>
+        <button data-end="burn">销毁所有资料</button>
+      </div>
+      <div class="ending-result" id="endingResult"></div>
+      <button class="ending-close" id="endingClose">返回档案馆</button>
+    </div>
+  </section>
+
+  <script>
+  const records = {
+    "人和医院":{id:"PUBLIC / RH-1972",title:"人和医院档案 · 公开信息",fear:1,kind:"photo",caption:"人和医院东翼 · 拍摄日期不详",body:`<strong>安城市人和综合医院</strong>，成立于1972年5月。\n地址：安城市城西区解放路189号\n建筑面积：约12,000平方米\n\n1998年3月因“重大安全事故”被吊销执照并永久关闭。\n末任院长：<strong>张德升</strong>（1990—1998，现下落不明）。`,next:["医院平面图","事故报告","张德升"]},
+    "1998":{id:"TIMELINE / 1998",title:"1998年事件索引",fear:1,kind:"doc",body:`03月14日 23:03 · 李明远写下最后一篇日记\n03月15日 23:41 · B3监控捕捉异常对象\n03月15日 23:47 · 东翼发生火灾\n03月16日 09:20 · 医院被封锁\n04月02日 · 医疗执照被永久吊销`,next:["3月15日","事故报告"]},
+    "三楼病房":{id:"WARD / FLOOR-03",title:"三楼病房值班记录",fear:2,kind:"photo",caption:"三楼病房 · 床位总数与记录不符",body:`登记床位：46张。火灾前一周，护士站系统持续显示<strong>47名住院病人</strong>。\n\n每晚03:15，编号不存在的47号床会自动触发呼叫。值班人员被要求忽略该信号。`,next:["地下三层","通风管道"]},
+    "实验终止日期":{id:"EXPERIMENT / TERMINATION",title:"实验终止通知",fear:2,kind:"doc",body:`项目：深度睡眠疗法临床观察\n终止日期：<strong class="red">1998年3月15日</strong>\n终止原因：████████\n\n附注：“如果它开始记住尚未发生的事，立即通知张院长。”`,next:["深度睡眠疗法","17号实验体"]},
+    "医院平面图":{id:"BLUEPRINT / 1997-B",title:"人和医院建筑平面图",fear:1,kind:"doc",body:`北楼：行政 / 门诊 / 普通病房\n东翼 B1：手术室\n东翼 B2：器材室\n东翼 B3：<span class="redaction">██████</span>\n\nB3标注曾被人为覆盖。扫描增强后，边缘可见手写小字：<strong>“实验区”</strong>。`,next:["地下三层","东翼B3"]},
+    "事故报告":{id:"POLICE / 1998-0315-A",title:"重大事故通报",fear:2,kind:"doc",body:`1998年3月15日23时47分，人和医院东翼发生火灾。\n伤亡统计：<strong>32人死亡，47人受伤</strong>。\n事故原因：电路老化（官方结论）\n\n<span class="red">手写批注：</span>“殡仪馆当日实际火化47具。多出的15具没有身份。数字对不上。——陈志强”`,next:["陈志强","3月15日","15具尸体"]},
+    "张德升":{id:"PERSONNEL / ZDS-041",title:"院长张德升 · 人事档案",fear:2,kind:"photo",caption:"张德升证件照 · 瞳孔反光无法修复",body:`1941年生，神经外科医生。1972年参与人和医院初建，1990年任院长。\n\n1997年内部备忘录：\n“<strong>第17号实验体</strong>神经元再生速度为正常人的300%。副作用仍在扩大。建议增加实验频率。时间紧迫。”`,next:["17号实验体","深度睡眠疗法"]},
+    "地下三层":{id:"SECURITY / B3-LOG",title:"保安值班日志 · B3",fear:2,kind:"doc",body:`12月8日：凌晨2点，电梯自行下降到B3，停留7分钟。无人进出。\n12月15日：地下停车场出现浓烈福尔马林味，但太平间不在这里。\n12月31日：B3消防门敞开。尽头灯灭后，我听见了呼吸声。<strong>不是我自己的。</strong>\n\n作者：赵刚（死于1998年火灾）`,next:["赵刚","小周","B3走廊"]},
+    "17号实验体":{id:"SUBJECT / S-017",title:"第17号实验体",fear:4,kind:"doc",body:`67岁女性，重度阿尔兹海默症。第2周开始注射SS-7。\n第6周：声称能“看见别人的记忆”。\n第8周：使用1940年代日语说话。\n\n李明远记录：\n“她预言1998年3月15日的火灾。她笑着说我们都会死。可镜子里——<strong class="red">她的倒影没有笑。</strong>”`,next:["李明远","SS-7","镜子"]},
+    "陈志强":{id:"INVESTIGATION / CZQ-1999",title:"陈志强 · 非正式调查笔记",fear:3,kind:"photo",caption:"调查员证件照 / 右后方疑似有人",body:`32具官方尸体全部火化，殡仪馆却记录了47具。\n多出来15具，没有身份记录。\nB3在火灾前就已被封死。\n前护士周敏在火灾前一周辞职，只在电话中说了三个字：<strong>手术室</strong>。\n\n匿名纸条：“别再查了。你在名单上了。”`,next:["15具尸体","手术室","小周"]},
+    "手术室":{id:"SURGERY / OP-0314-03",title:"最后一次手术日志",fear:4,kind:"photo",caption:"东翼B1手术室 · 电源已切断",body:`病人编号：S-017　主刀：李明远\n\n手术第47分钟，病人突然睁眼。声音从未通电的扬声器传出：\n<strong class="red">“48分12秒后，你们都会死。”</strong>\n\n火灾发生于约44分钟后。`,next:["预言","张德升","李明远"]},
+    "李明远":{id:"DIARY / LMY-0314",title:"李明远医师 · 私人日记",fear:2,kind:"doc",body:`1997.12.24：“你们不是第一个发现这个频率的人。<strong>1942年</strong>，这片土地下面早就有人在听。”\n\n1998.03.14：我把全部文件藏在三楼病房的<strong>通风管道</strong>。如果有人找到，真相就在管道里。`,next:["1942","通风管道","SS-7"]},
+    "B3走廊":{id:"CCTV / B3-2341",title:"东翼B3监控录像",fear:5,kind:"photo",caption:"23:43:15 · 画面增强已停止",body:`23:41:00 · 走廊无人\n23:42:00 · 类人对象从门内爬出，四肢反向弯曲\n23:43:15 · 对象直视镜头30秒\n23:43:45 · 唇语识别结果：\n\n<strong class="red">“找到你了。”</strong>\n\n值班员孙伟次日失踪。`,next:["监控录像","1942"]},
+    "1942":{id:"CLASSIFIED / ZERO-1942",title:"安城县志 · 1942绝密档案",fear:4,kind:"doc",body:`日军在安城西郊建立代号为<strong>“零号设施”</strong>的研究所，研究超心理学与生物能量转化。\n实验对象约200名，幸存者0。\n1945年撤退前，地下三层被水泥封存。\n\n工程师供述：“我们封存的不是设施。是那些实验对象。<strong>他们还没有死。</strong>”`,next:["零号设施","真相","1972发现"]},
+    "通风管道":{id:"RECOVERED / VENT-03",title:"通风管道中找到的文件",fear:3,kind:"doc",body:`文件一：SS-7血清配方\n文件二：47名实验对象名单——32人“已终止”，15人“待定”。\n文件三：张德升备忘录：\n\n“SS-7不是药物，是一把<strong>钥匙</strong>。它打开了进化刻意关上的门。但门后有东西正在回看我们。”`,next:["实验名单","钥匙","真相"]},
+    "真相":{id:"SUBJECT / S-048",title:"综合档案 · 真相",fear:5,kind:"photo",caption:"新病历 · 日期：今天 · 编号：S-048",gate:12,body:`人和医院建在1942年“零号设施”之上。张德升从地下的意识残余中获得SS-7配方，并在S-017身上打开了一扇门。\n\n门是双向的。\n\n火灾由张德升亲手点燃，试图把门关上。但它没有关上。因为现在你知道了。你搜索了这些词。<strong class="red">你也在名单上了。</strong>`,next:["实验名单","钥匙"]},
+    "深度睡眠疗法":{id:"PAPER / DSS-07",title:"深度睡眠疗法 · 论文摘录",fear:1,kind:"doc",body:`张德升提出，人脑在深度睡眠中会短暂接收“不属于自身的记忆”。1994年后，论文中的“药物辅助”被替换为内部编号：<strong>SS-7</strong>。`,next:["SS-7","17号实验体"]},
+    "SS-7":{id:"SERUM / SS-7",title:"SS-7神经元重塑血清",fear:3,kind:"doc",body:`已知成分：神经营养因子、████、S-017脊髓液提取物。\n显微镜下的样本会在观察者移开视线后改变结构。\n\n实验人员称它为药物。张德升称它为<strong>钥匙</strong>。`,next:["钥匙","通风管道"]},
+    "赵刚":{id:"PERSONNEL / ZG-028",title:"保安赵刚 · 人事记录",fear:2,kind:"photo",caption:"证件照背面写着：门不是我打开的",body:`1996年入职，负责地下停车场夜间巡逻。火灾中死亡。\n遗物中有一串不属于医院现有门锁的钥匙，标签为：<strong>B3 / ZERO</strong>。`,next:["地下三层","零号设施"]},
+    "小周":{id:"WITNESS / ZM-1998",title:"前护士周敏 · 电话转写",fear:3,kind:"doc",body:`“他们让我给17号换药。镜子里有另一个我，动作总是慢半秒。火灾前一周，镜子里的我第一次比我先动。她指着门外，说：<strong>去手术室。</strong>”`,next:["17号实验体","手术室"]},
+    "15具尸体":{id:"CREMATION / EXTRA-15",title:"无名火化记录",fear:3,kind:"doc",body:`1998年3月16日，无身份尸体15具被送抵安城殡仪馆。死亡原因栏统一填写“火灾”，但衣物无燃烧痕迹。\n\n所有尸体的左耳后方都有同一编号：<strong>S-033 至 S-047</strong>。`,next:["实验名单","陈志强"]},
+    "监控录像":{id:"INDEX / CCTV-B3",title:"B3监控带目录",fear:4,kind:"photo",caption:"磁带外壳内侧有指甲抓痕",body:`共17盘磁带，仅一盘可读取。编号与实验对象相同：S-001—S-017。\n最后一盘的录像长度每天增加48秒，即便它从未接入电源。`,next:["B3走廊","17号实验体"]},
+    "零号设施":{id:"FACILITY / ZERO",title:"零号设施结构摘要",fear:4,kind:"doc",body:`地下三层，建于1942年。中央房间没有门，1972年施工时却发现内部有新鲜血迹。\n墙体厚度测量结果每天都不同。\n\n最底层施工图标注：<strong>“接收室”</strong>。`,next:["1942","真相"]},
+    "实验名单":{id:"SUBJECTS / S001-047",title:"实验对象完整名单",fear:3,kind:"doc",body:`S-001 至 S-032：已终止\nS-033 至 S-047：待定\nS-017：通道稳定\n\n名单末尾出现一行较新的打印字迹：\n<strong class="red">S-048：正在阅读</strong>`,next:["钥匙","真相"]},
+    "钥匙":{id:"PROTOCOL / KEY",title:"“钥匙”协议",fear:4,kind:"doc",body:`SS-7负责打开神经通路；影像、文字与记忆负责维持通路。\n\n只要还有一个人知道“守望者”的存在，门就保持开启。\n销毁档案没有用。<strong>除非最后一个知情者也被销毁。</strong>`,next:["真相"]}
+  };
+  const aliases={"东翼B3":"地下三层","3月15日":"事故报告","镜子":"17号实验体","预言":"手术室","张德升声音":"手术室","SS-7血清":"SS-7","陈志强警察":"陈志强","孙伟":"B3走廊","B3门":"B3走廊","1972发现":"零号设施"};
+  const keys=Object.keys(records), total=keys.length;
+  let found=new Set(JSON.parse(localStorage.getItem("renhe-found")||"[]"));
+  let wrong=Number(sessionStorage.getItem("renhe-wrong")||0);
+  const $=s=>document.querySelector(s);
+  const empty=$("#empty"),result=$("#result"),error=$("#error"),search=$("#search");
+  function clean(v){return v.trim().replace(/\s+/g,"").replace(/[“”"'，。！？]/g,"")}
+  function save(){localStorage.setItem("renhe-found",JSON.stringify([...found]));updateProgress();renderArchive()}
+  function updateProgress(){let n=found.size;$("#count").textContent=`${n} / ${total}`;$("#bar").style.width=`${n/total*100}%`;$("#hint").innerHTML=n===0?"起始线索：公众号文章提到的医院名称":n<4?"留意档案中的 <button data-query='医院平面图'>关联词</button>":n<12?"继续追踪姓名、地点、日期和编号":n<20?"你已经接近那扇门。现在停下还来得及。":"它知道你还在搜索。";bindQueries()}
+  function bindQueries(){document.querySelectorAll("[data-query]").forEach(b=>b.onclick=()=>run(b.dataset.query))}
+  function artifact(r){
+    if(r.kind==="photo")return `<div class="photo" data-caption="${r.caption||"档案图像 · 来源不明"}"><img src="assets/ward-0317.png" alt="${r.caption||r.title}"></div>`;
+    return `<div class="doc"><b>${r.id}</b>安城市人和医院<br>内部资料 / 禁止复制<br><br><span class="redaction">REDACTED</span><br><br>文件完整性：${Math.floor(54+Math.random()*42)}%<i>“有些记录不是写给活人看的。”</i></div>`;
+  }
+  function run(raw){
+    let q=clean(raw),key=records[q]?q:aliases[q];
+    empty.style.display="none";result.classList.remove("show");error.classList.remove("show");
+    if(!key){
+      wrong++;sessionStorage.setItem("renhe-wrong",wrong);error.classList.add("show");
+      if(wrong%3===0){document.body.classList.add("glitch");setTimeout(()=>document.body.classList.remove("glitch"),700)}
+      search.value="";return;
+    }
+    let r=records[key];
+    if(r.gate && found.size<r.gate){
+      error.classList.add("show");error.querySelector("h2").textContent="档案不完整，无法获取真相。";
+      error.querySelector("p").innerHTML=`需要至少解锁 ${r.gate} 份记录。当前已解锁 ${found.size} 份。<br><small style="color:#57201e">没关系。我们会来找你的。</small>`;return;
+    }
+    const isNew=!found.has(key);found.add(key);save();
+    $("#recordId").textContent=r.id;$("#recordTitle").textContent=r.title;$("#level").textContent=`异常等级 ${r.fear} / 5`;
+    $("#recordBody").innerHTML=r.body;
+    $("#links").innerHTML=`关联检索<br>${r.next.map(x=>`<button data-query="${x}">${x}</button>`).join("　/　")}`;
+    $("#artifact").innerHTML=artifact(r);result.classList.add("show");bindQueries();search.value="";
+    result.scrollIntoView({behavior:"smooth",block:"start"});
+    if(isNew&&r.fear>=4)setTimeout(()=>shock(r.fear),r.fear===5?700:1600);
+    if(key==="真相")setTimeout(()=>$("#ending").classList.add("show"),2600);
+  }
+  function shock(level){
+    const s=$("#shock");s.querySelector(".shock-text").textContent=level===5?"找到你了":"不要看镜子";
+    s.classList.add("show");s.setAttribute("aria-hidden","false");if(navigator.vibrate)navigator.vibrate([90,40,120]);
+    setTimeout(()=>{s.classList.remove("show");s.setAttribute("aria-hidden","true")},level===5?1200:760);
+  }
+  function renderArchive(){
+    $("#archiveList").innerHTML=keys.map((k,i)=>found.has(k)?`<button class="archive-item" data-query="${k}">${k}<span>${records[k].id.split("/")[0]} · ${String(i+1).padStart(2,"0")}</span></button>`:`<button class="archive-item lock" disabled>██████<span>LOCKED · ${String(i+1).padStart(2,"0")}</span></button>`).join("");bindQueries();
+  }
+  $("#form").onsubmit=e=>{e.preventDefault();run(search.value)};
+  $("#openArchive").onclick=()=>{$("#drawer").classList.add("open");$("#drawer").setAttribute("aria-hidden","false")};
+  $(".drawer-close").onclick=()=>{$("#drawer").classList.remove("open");$("#drawer").setAttribute("aria-hidden","true")};
+  $("#reset").onclick=()=>{if(confirm("清除所有本机调查记录并重新开始？")){localStorage.removeItem("renhe-found");sessionStorage.removeItem("renhe-wrong");location.reload()}};
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("#drawer").classList.remove("open");$("#ending").classList.remove("show")}if(e.key==="/"&&document.activeElement!==search){e.preventDefault();search.focus()}});
+  document.querySelectorAll("[data-end]").forEach(b=>b.onclick=()=>{
+    const publish=b.dataset.end==="publish";$("#choices").style.display="none";$("#endingResult").classList.add("show");
+    $("#endingResult").innerHTML=publish?`<strong>结局 A · 揭露真相</strong><br><br>《安城人和医院黑幕被曝光》<br><span style="color:#81302c">报道日期：3月15日　记者失踪，调查中断。</span>`:`<strong>结局 B · 封存秘密</strong><br><br>资料已送入焚化炉。<br><span style="color:#81302c">你很聪明。但门已经开过了。</span>`;
+  });
+  $("#endingClose").onclick=()=>$("#ending").classList.remove("show");
+  let audioCtx,hum,humGain,audioOn=false;
+  $("#audio").onclick=()=>{
+    audioOn=!audioOn;$("#audio").setAttribute("aria-pressed",audioOn);$("#audio .label").textContent=`环境音：${audioOn?"开启":"关闭"}`;
+    if(audioOn){audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();hum=audioCtx.createOscillator();humGain=audioCtx.createGain();hum.type="sine";hum.frequency.value=46;humGain.gain.value=.025;hum.connect(humGain).connect(audioCtx.destination);hum.start()}else if(hum){hum.stop();hum=null}
+  };
+  const placeholders=["输入关键词搜索…","例如：医院名称","准确的词会打开准确的门"];
+  let pi=0,ci=0,back=false;
+  setInterval(()=>{if(document.activeElement===search||search.value)return;let t=placeholders[pi];ci+=back?-1:1;search.placeholder=t.slice(0,ci);if(ci===t.length){back=true;setTimeout(()=>{},700)}if(ci===0&&back){back=false;pi=(pi+1)%placeholders.length}},110);
+  document.addEventListener("visibilitychange",()=>{if(document.hidden)document.title="病床已经准备好了";else setTimeout(()=>document.title="人和医院在线档案馆",900)});
+  updateProgress();renderArchive();
+  </script>
+</body>
+</html>
