@@ -70,9 +70,8 @@
     .record-head{display:flex;justify-content:space-between;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
     .record-id{font:10px ui-monospace,monospace;color:var(--red2);letter-spacing:.16em}.record h2{font-size:28px;font-weight:400;margin:10px 0 0}
     .level{height:max-content;border:1px solid #43201f;padding:7px 9px;color:#9c4b45;font:9px ui-monospace,monospace;white-space:nowrap}
-    .record-body{padding-top:24px;color:#a7aaa3;font-size:14px;line-height:2;white-space:pre-line}.record-body strong{color:#d2d4cd;font-weight:400}.record-body .red{color:#b14a44}
-    .links{margin-top:29px;padding:19px 20px;border-left:2px solid #54201e;background:#120e0d;color:#8a8d86;font:11px/1.9 ui-monospace,monospace}
-    .links button{border:0;background:none;padding:0;color:#a6b0a5;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+    .record-body{padding-top:24px;color:#a7aaa3;font-size:14px;line-height:2;white-space:pre-line}.record-body strong{color:inherit;font-weight:400}.record-body .red{color:#b14a44}
+    .links{margin-top:29px;padding:14px 0;border-top:1px solid var(--line);color:#595e58;font:9px/1.9 ui-monospace,monospace;letter-spacing:.1em}
     .artifact{position:relative;min-height:100%;overflow:hidden;background:#090a09;display:flex;align-items:center;justify-content:center;padding:34px}
     .artifact::before{content:"ARCHIVE PREVIEW";position:absolute;top:18px;left:20px;color:#3d433d;font:9px ui-monospace,monospace;letter-spacing:.18em}
     .photo{position:relative;width:100%;aspect-ratio:4/5;padding:0;border:0;background:#191b18;box-shadow:0 18px 45px #0008;transform:rotate(-1.2deg);overflow:hidden;opacity:0;animation:photoIn 2s .15s forwards;cursor:zoom-in}
@@ -146,7 +145,7 @@
       </form>
       <div class="search-meta">
         <span>仅支持精确关键词 · 搜索记录保存在当前设备</span>
-        <span class="hint" id="hint">起始线索：公众号文章提到的医院名称</span>
+        <span class="hint" id="hint">输入你从入口文章中注意到的词</span>
       </div>
     </section>
 
@@ -162,7 +161,7 @@
         </div>
         <aside class="artifact" id="artifact"></aside>
       </article>
-      <div class="error" id="error"><div class="error-code">404</div><h2>档案中没有这个词。</h2><p>数据库拒绝模糊检索。请检查关键词，或回到已发现的档案寻找被明确标出的名称、地点、日期与编号。</p></div>
+      <div class="error" id="error"><div class="error-code">404</div><h2>档案中没有这个词。</h2><p>数据库拒绝模糊检索。请重新阅读已经恢复的档案；系统不会提供关联词或下一步建议。</p></div>
     </section>
   </main>
 
@@ -202,31 +201,31 @@
 
   <script>
   const records = {
-    "人和医院":{id:"PUBLIC / RH-1972",title:"人和医院档案 · 公开信息",fear:1,kind:"photo",image:"assets/hospital-exterior.webp",caption:"人和医院西门 · 拍摄日期不详",body:`<strong>安城市人和综合医院</strong>，成立于1972年5月。\n地址：安城市城西区解放路189号\n建筑面积：约12,000平方米\n\n1998年3月因“重大安全事故”被吊销执照并永久关闭。\n末任院长：<strong>张德升</strong>（1990—1998，现下落不明）。`,next:["医院平面图","事故报告","张德升"]},
+    "人和医院":{id:"PUBLIC / RH-1972",title:"人和医院档案 · 公开信息",fear:1,kind:"photo",image:"assets/hospital-exterior.webp",caption:"人和医院西门 · 拍摄日期不详",body:`安城市人和综合医院，成立于1972年5月。\n地址：安城市城西区解放路189号\n建筑面积：约12,000平方米\n\n1998年3月因“重大安全事故”被吊销执照并永久关闭。末任院长张德升于事后失踪。\n\n旧档案移交清单还列有一册医院平面图和一份未公开的事故报告，但两项均没有建立数字索引。`,next:["医院平面图","事故报告","张德升"]},
     "1998":{id:"TIMELINE / 1998",title:"1998年事件索引",fear:1,kind:"doc",body:`03月14日 23:03 · 李明远写下最后一篇日记\n03月15日 23:41 · B3监控捕捉异常对象\n03月15日 23:47 · 东翼发生火灾\n03月16日 09:20 · 医院被封锁\n04月02日 · 医疗执照被永久吊销`,next:["3月15日","事故报告"]},
-    "三楼病房":{id:"WARD / FLOOR-03",title:"三楼病房值班记录",fear:2,kind:"photo",caption:"三楼病房 · 床位总数与记录不符",body:`登记床位：46张。火灾前一周，护士站系统持续显示<strong>47名住院病人</strong>。\n\n每晚03:15，编号不存在的47号床会自动触发呼叫。值班人员被要求忽略该信号。`,next:["地下三层","通风管道"]},
+    "三楼病房":{id:"WARD / FLOOR-03",title:"三楼病房值班记录",fear:2,kind:"photo",caption:"三楼病房 · 床位总数与记录不符",body:`登记床位：46张。火灾前一周，护士站系统持续显示47名住院病人。\n\n每晚03:15，编号不存在的47号床会自动触发呼叫。维修单称线路经过通风管道，一直通向地下三层；值班人员被要求忽略该信号。`,next:["地下三层","通风管道"]},
     "实验终止日期":{id:"EXPERIMENT / TERMINATION",title:"实验终止通知",fear:2,kind:"doc",body:`项目：深度睡眠疗法临床观察\n终止日期：<strong class="red">1998年3月15日</strong>\n终止原因：████████\n\n附注：“如果它开始记住尚未发生的事，立即通知张院长。”`,next:["深度睡眠疗法","17号实验体"]},
-    "医院平面图":{id:"BLUEPRINT / 1997-B",title:"人和医院建筑平面图",fear:1,kind:"doc",body:`北楼：行政 / 门诊 / 普通病房\n东翼 B1：手术室\n东翼 B2：器材室\n东翼 B3：<span class="redaction">██████</span>\n\nB3标注曾被人为覆盖。扫描增强后，边缘可见手写小字：<strong>“实验区”</strong>。`,next:["地下三层","东翼B3"]},
-    "事故报告":{id:"POLICE / 1998-0315-A",title:"重大事故通报",fear:2,kind:"photo",image:"assets/burned-report.webp",caption:"1998-0315-A · 烧焦边缘及红色批注",body:`1998年3月15日23时47分，人和医院东翼发生火灾。\n伤亡统计：<strong>32人死亡，47人受伤</strong>。\n事故原因：电路老化（官方结论）\n\n<span class="red">手写批注：</span>“殡仪馆当日实际火化47具。多出的15具没有身份。数字对不上。——陈志强”`,next:["陈志强","3月15日","15具尸体"]},
-    "张德升":{id:"PERSONNEL / ZDS-041",title:"院长张德升 · 人事档案",fear:2,kind:"photo",caption:"张德升证件照 · 瞳孔反光无法修复",body:`1941年生，神经外科医生。1972年参与人和医院初建，1990年任院长。\n\n1997年内部备忘录：\n“<strong>第17号实验体</strong>神经元再生速度为正常人的300%。副作用仍在扩大。建议增加实验频率。时间紧迫。”`,next:["17号实验体","深度睡眠疗法"]},
-    "地下三层":{id:"SECURITY / B3-LOG",title:"保安值班日志 · B3",fear:2,kind:"doc",body:`12月8日：凌晨2点，电梯自行下降到B3，停留7分钟。无人进出。\n12月15日：地下停车场出现浓烈福尔马林味，但太平间不在这里。\n12月31日：B3消防门敞开。尽头灯灭后，我听见了呼吸声。<strong>不是我自己的。</strong>\n\n作者：赵刚（死于1998年火灾）`,next:["赵刚","小周","B3走廊"]},
+    "医院平面图":{id:"BLUEPRINT / 1997-B",title:"人和医院建筑平面图",fear:1,kind:"doc",body:`北楼：行政 / 门诊 / 普通病房\n东翼 B1：手术室\n东翼 B2：器材室\n东翼 B3：<span class="redaction">██████</span>\n\n图纸背面把B3称为“地下三层”。原标注曾被人为覆盖，扫描增强后只剩半行铅笔字：“实验区”。`,next:["地下三层","东翼B3"]},
+    "事故报告":{id:"POLICE / 1998-0315-A",title:"重大事故通报",fear:2,kind:"photo",image:"assets/burned-report.webp",caption:"1998-0315-A · 烧焦边缘及红色批注",body:`1998年3月15日23时47分，人和医院东翼发生火灾。\n伤亡统计：32人死亡，47人受伤。\n事故原因：电路老化（官方结论）\n\n手写批注：“殡仪馆当日实际火化47具。多出的15具尸体没有身份，数字对不上。——陈志强”`,next:["陈志强","3月15日","15具尸体"]},
+    "张德升":{id:"PERSONNEL / ZDS-041",title:"院长张德升 · 人事档案",fear:2,kind:"photo",caption:"张德升证件照 · 瞳孔反光无法修复",body:`1941年生，神经外科医生。1972年参与人和医院初建，1990年任院长。其论文大多围绕“深度睡眠疗法”。\n\n1997年内部备忘录：\n“第17号实验体神经元再生速度为正常人的300%。副作用仍在扩大。建议增加实验频率。时间紧迫。”`,next:["17号实验体","深度睡眠疗法"]},
+    "地下三层":{id:"SECURITY / B3-LOG",title:"保安值班日志 · B3",fear:2,kind:"doc",body:`12月8日：凌晨2点，电梯自行下降到B3，停留7分钟。无人进出。\n12月15日：实习护士小周说，停车场出现浓烈福尔马林味，但太平间不在这里。\n12月31日：B3走廊的消防门敞开。尽头灯灭后，我听见了呼吸声。不是我自己的。\n\n作者：赵刚（死于1998年火灾）`,next:["赵刚","小周","B3走廊"]},
     "17号实验体":{id:"SUBJECT / S-017",title:"第17号实验体",fear:4,kind:"photo",image:"assets/subject-s017.webp",caption:"S-017 · 镜像表情比主体早出现0.8秒",body:`67岁女性，重度阿尔兹海默症。第2周开始注射SS-7。\n第6周：声称能“看见别人的记忆”。\n第8周：使用1940年代日语说话。\n\n李明远记录：\n“她预言1998年3月15日的火灾。她笑着说我们都会死。可镜子里——<strong class="red">她的倒影没有笑。</strong>”`,next:["李明远","SS-7","镜子"]},
-    "陈志强":{id:"INVESTIGATION / CZQ-1999",title:"陈志强 · 非正式调查笔记",fear:3,kind:"photo",caption:"调查员证件照 / 右后方疑似有人",body:`32具官方尸体全部火化，殡仪馆却记录了47具。\n多出来15具，没有身份记录。\nB3在火灾前就已被封死。\n前护士周敏在火灾前一周辞职，只在电话中说了三个字：<strong>手术室</strong>。\n\n匿名纸条：“别再查了。你在名单上了。”`,next:["15具尸体","手术室","小周"]},
+    "陈志强":{id:"INVESTIGATION / CZQ-1999",title:"陈志强 · 非正式调查笔记",fear:3,kind:"photo",caption:"调查员证件照 / 右后方疑似有人",body:`32具官方尸体全部火化，殡仪馆却记录了47具。多出来的15具尸体没有身份记录。\nB3在火灾前就已被封死。\n前护士周敏——值班簿里一直叫她“小周”——在火灾前一周辞职，只在电话中说了三个字：手术室。\n\n匿名纸条：“别再查了。你在名单上了。”`,next:["15具尸体","手术室","小周"]},
     "手术室":{id:"SURGERY / OP-0314-03",title:"最后一次手术日志",fear:4,kind:"photo",image:"assets/operating-room.webp",caption:"东翼B1手术室 · 总闸断开后灯仍亮着",body:`病人编号：S-017　主刀：李明远\n\n手术第47分钟，病人突然睁眼。声音从未通电的扬声器传出：\n<strong class="red">“48分12秒后，你们都会死。”</strong>\n\n火灾发生于约44分钟后。`,next:["预言","张德升","李明远"]},
     "李明远":{id:"DIARY / LMY-0314",title:"李明远医师 · 私人日记",fear:2,kind:"doc",body:`1997.12.24：“你们不是第一个发现这个频率的人。<strong>1942年</strong>，这片土地下面早就有人在听。”\n\n1998.03.14：我把全部文件藏在三楼病房的<strong>通风管道</strong>。如果有人找到，真相就在管道里。`,next:["1942","通风管道","SS-7"]},
-    "B3走廊":{id:"CCTV / B3-2341",title:"东翼B3监控录像",fear:5,kind:"photo",image:"assets/b3-corridor.webp",caption:"23:43:15 · 天花板右侧出现未知对象",body:`23:41:00 · 走廊无人\n23:42:00 · 类人对象从门内爬出，四肢反向弯曲\n23:43:15 · 对象直视镜头30秒\n23:43:45 · 唇语识别结果：\n\n<strong class="red">“找到你了。”</strong>\n\n值班员孙伟次日失踪。`,next:["监控录像","1942"]},
-    "1942":{id:"CLASSIFIED / ZERO-1942",title:"安城县志 · 1942绝密档案",fear:4,kind:"photo",image:"assets/zero-excavation.webp",caption:"1972年地基施工 · 裂缝内存在肢体轮廓",body:`日军在安城西郊建立代号为<strong>“零号设施”</strong>的研究所，研究超心理学与生物能量转化。\n实验对象约200名，幸存者0。\n1945年撤退前，地下三层被水泥封存。\n\n工程师供述：“我们封存的不是设施。是那些实验对象。<strong>他们还没有死。</strong>”`,next:["零号设施","真相","1972发现"]},
+    "B3走廊":{id:"CCTV / B3-2341",title:"东翼B3监控录像",fear:5,kind:"photo",image:"assets/b3-corridor.webp",caption:"23:43:15 · 天花板右侧出现未知对象",body:`23:41:00 · 监控录像显示走廊无人\n23:42:00 · 类人对象从门内爬出，四肢反向弯曲\n23:43:15 · 对象直视镜头30秒\n23:43:45 · 唇语识别结果：\n\n<strong class="red">“找到你了。”</strong>\n\n值班员孙伟次日失踪。磁带盒内侧反复刻着数字1942。`,next:["监控录像","1942"]},
+    "1942":{id:"CLASSIFIED / ZERO-1942",title:"安城县志 · 1942绝密档案",fear:4,kind:"photo",image:"assets/zero-excavation.webp",caption:"1972年地基施工 · 裂缝内存在肢体轮廓",body:`日军在安城西郊建立代号为“零号设施”的研究所，研究超心理学与生物能量转化。\n实验对象约200名，幸存者0。\n1945年撤退前，地下三层被水泥封存。\n\n工程师供述：“我们封存的不是设施。是那些实验对象。他们还没有死。”\n\n这份证词也许才是1972年施工事故一直被掩盖的真相。`,next:["零号设施","真相","1972发现"]},
     "通风管道":{id:"RECOVERED / VENT-03",title:"通风管道中找到的文件",fear:3,kind:"doc",body:`文件一：SS-7血清配方\n文件二：47名实验对象名单——32人“已终止”，15人“待定”。\n文件三：张德升备忘录：\n\n“SS-7不是药物，是一把<strong>钥匙</strong>。它打开了进化刻意关上的门。但门后有东西正在回看我们。”`,next:["实验名单","钥匙","真相"]},
     "真相":{id:"SUBJECT / S-048",title:"综合档案 · 真相",fear:5,kind:"photo",image:"assets/subject-s048.webp",caption:"新病历 · 日期：今天 · 镜中对象未登记",gate:12,body:`人和医院建在1942年“零号设施”之上。张德升从地下的意识残余中获得SS-7配方，并在S-017身上打开了一扇门。\n\n门是双向的。\n\n火灾由张德升亲手点燃，试图把门关上。但它没有关上。因为现在你知道了。你搜索了这些词。<strong class="red">你也在名单上了。</strong>`,next:["实验名单","钥匙"]},
     "深度睡眠疗法":{id:"PAPER / DSS-07",title:"深度睡眠疗法 · 论文摘录",fear:1,kind:"doc",body:`张德升提出，人脑在深度睡眠中会短暂接收“不属于自身的记忆”。1994年后，论文中的“药物辅助”被替换为内部编号：<strong>SS-7</strong>。`,next:["SS-7","17号实验体"]},
     "SS-7":{id:"SERUM / SS-7",title:"SS-7神经元重塑血清",fear:3,kind:"doc",body:`已知成分：神经营养因子、████、S-017脊髓液提取物。\n显微镜下的样本会在观察者移开视线后改变结构。\n\n实验人员称它为药物。张德升称它为<strong>钥匙</strong>。`,next:["钥匙","通风管道"]},
     "赵刚":{id:"PERSONNEL / ZG-028",title:"保安赵刚 · 人事记录",fear:2,kind:"photo",caption:"证件照背面写着：门不是我打开的",body:`1996年入职，负责地下停车场夜间巡逻。火灾中死亡。\n遗物中有一串不属于医院现有门锁的钥匙，标签为：<strong>B3 / ZERO</strong>。`,next:["地下三层","零号设施"]},
     "小周":{id:"WITNESS / ZM-1998",title:"前护士周敏 · 电话转写",fear:3,kind:"doc",body:`“他们让我给17号换药。镜子里有另一个我，动作总是慢半秒。火灾前一周，镜子里的我第一次比我先动。她指着门外，说：<strong>去手术室。</strong>”`,next:["17号实验体","手术室"]},
-    "15具尸体":{id:"CREMATION / EXTRA-15",title:"无名火化记录",fear:3,kind:"doc",body:`1998年3月16日，无身份尸体15具被送抵安城殡仪馆。死亡原因栏统一填写“火灾”，但衣物无燃烧痕迹。\n\n所有尸体的左耳后方都有同一编号：<strong>S-033 至 S-047</strong>。`,next:["实验名单","陈志强"]},
+    "15具尸体":{id:"CREMATION / EXTRA-15",title:"无名火化记录",fear:3,kind:"doc",body:`1998年3月16日，无身份尸体15具被送抵安城殡仪馆。死亡原因栏统一填写“火灾”，但衣物无燃烧痕迹。\n\n所有尸体左耳后方都有编号S-033至S-047。陈志强在页角写道：“去找实验名单，编号不会撒谎。”`,next:["实验名单","陈志强"]},
     "监控录像":{id:"INDEX / CCTV-B3",title:"B3监控带目录",fear:4,kind:"photo",image:"assets/b3-corridor.webp",caption:"CCTV-B3 · 原始磁带第17帧",body:`共17盘磁带，仅一盘可读取。编号与实验对象相同：S-001—S-017。\n最后一盘的录像长度每天增加48秒，即便它从未接入电源。`,next:["B3走廊","17号实验体"]},
     "零号设施":{id:"FACILITY / ZERO",title:"零号设施结构摘要",fear:4,kind:"photo",image:"assets/zero-excavation.webp",caption:"零号设施入口 · 1972年重新暴露",body:`地下三层，建于1942年。中央房间没有门，1972年施工时却发现内部有新鲜血迹。\n墙体厚度测量结果每天都不同。\n\n最底层施工图标注：<strong>“接收室”</strong>。`,next:["1942","真相"]},
-    "实验名单":{id:"SUBJECTS / S001-047",title:"实验对象完整名单",fear:3,kind:"doc",body:`S-001 至 S-032：已终止\nS-033 至 S-047：待定\nS-017：通道稳定\n\n名单末尾出现一行较新的打印字迹：\n<strong class="red">S-048：正在阅读</strong>`,next:["钥匙","真相"]},
-    "钥匙":{id:"PROTOCOL / KEY",title:"“钥匙”协议",fear:4,kind:"doc",body:`SS-7负责打开神经通路；影像、文字与记忆负责维持通路。\n\n只要还有一个人知道“守望者”的存在，门就保持开启。\n销毁档案没有用。<strong>除非最后一个知情者也被销毁。</strong>`,next:["真相"]}
+    "实验名单":{id:"SUBJECTS / S001-047",title:"实验对象完整名单",fear:3,kind:"doc",body:`S-001 至 S-032：已终止\nS-033 至 S-047：待定\nS-017：通道稳定\n\n页眉写着“钥匙协议附件”。名单末尾出现一行较新的打印字迹：\n<strong class="red">S-048：正在阅读</strong>\n\n背面只有两个手写字：真相。`,next:["钥匙","真相"]},
+    "钥匙":{id:"PROTOCOL / KEY",title:"“钥匙”协议",fear:4,kind:"doc",body:`SS-7负责打开神经通路；影像、文字与记忆负责维持通路。\n\n只要还有一个人知道“守望者”的存在，门就保持开启。\n销毁档案没有用，除非最后一个知情者也被销毁。\n\n页脚批注：“知道真相的人，本身就是门的一部分。”`,next:["真相"]}
   };
   const aliases={"东翼B3":"地下三层","3月15日":"事故报告","镜子":"17号实验体","预言":"手术室","张德升声音":"手术室","SS-7血清":"SS-7","陈志强警察":"陈志强","孙伟":"B3走廊","B3门":"B3走廊","1972发现":"零号设施"};
   const keys=Object.keys(records), total=keys.length;
@@ -236,7 +235,7 @@
   const empty=$("#empty"),result=$("#result"),error=$("#error"),search=$("#search");
   function clean(v){return v.trim().replace(/\s+/g,"").replace(/[“”"'，。！？]/g,"")}
   function save(){localStorage.setItem("renhe-found",JSON.stringify([...found]));updateProgress();renderArchive()}
-  function updateProgress(){let n=found.size;$("#count").textContent=`${n} / ${total}`;$("#bar").style.width=`${n/total*100}%`;$("#hint").innerHTML=n===0?"起始线索：公众号文章提到的医院名称":n<4?"留意档案中的 <button data-query='医院平面图'>关联词</button>":n<12?"继续追踪姓名、地点、日期和编号":n<20?"你已经接近那扇门。现在停下还来得及。":"它知道你还在搜索。";document.querySelectorAll("[data-reel]").forEach(item=>item.classList.toggle("unlocked",found.has(item.dataset.reel)));bindQueries()}
+  function updateProgress(){let n=found.size;$("#count").textContent=`${n} / ${total}`;$("#bar").style.width=`${n/total*100}%`;$("#hint").textContent=n===0?"入口文章中出现过不止一个可检索词":n<12?"交叉索引已损坏，请自行阅读正文":n<20?"你已经接近那扇门。现在停下还来得及。":"它知道你还在搜索。";document.querySelectorAll("[data-reel]").forEach(item=>item.classList.toggle("unlocked",found.has(item.dataset.reel)));bindQueries()}
   function bindQueries(){document.querySelectorAll("[data-query]").forEach(b=>b.onclick=()=>run(b.dataset.query))}
   function artifact(r){
     if(r.kind==="photo")return `<button class="photo" type="button" data-caption="${r.caption||"档案图像 · 来源不明"}" aria-label="放大查看：${r.caption||r.title}"><img src="${r.image||"assets/ward-0317.png"}" alt="${r.caption||r.title}"></button>`;
@@ -258,7 +257,7 @@
     const isNew=!found.has(key);found.add(key);save();
     $("#recordId").textContent=r.id;$("#recordTitle").textContent=r.title;$("#level").textContent=`异常等级 ${r.fear} / 5`;
     $("#recordBody").innerHTML=r.body;
-    $("#links").innerHTML=`关联检索<br>${r.next.map(x=>`<button data-query="${x}">${x}</button>`).join("　/　")}`;
+    $("#links").textContent="CROSS-REFERENCE INDEX CORRUPTED / 请从档案正文自行识别检索词";
     $("#artifact").innerHTML=artifact(r);result.classList.add("show");bindQueries();bindPhoto();search.value="";
     result.scrollIntoView({behavior:"smooth",block:"start"});
     if(isNew&&r.fear>=4)setTimeout(()=>shock(r.fear,r.image),r.fear===5?700:1600);
@@ -293,7 +292,7 @@
     audioOn=!audioOn;$("#audio").setAttribute("aria-pressed",audioOn);$("#audio .label").textContent=`环境音：${audioOn?"开启":"关闭"}`;
     if(audioOn){audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();hum=audioCtx.createOscillator();humGain=audioCtx.createGain();hum.type="sine";hum.frequency.value=46;humGain.gain.value=.025;hum.connect(humGain).connect(audioCtx.destination);hum.start()}else if(hum){hum.stop();hum=null}
   };
-  const placeholders=["输入关键词搜索…","例如：医院名称","准确的词会打开准确的门"];
+  const placeholders=["输入档案关键词…","此处不提供关键词提示","记录不会替你做判断"];
   let pi=0,ci=0,back=false;
   setInterval(()=>{if(document.activeElement===search||search.value)return;let t=placeholders[pi];ci+=back?-1:1;search.placeholder=t.slice(0,ci);if(ci===t.length){back=true;setTimeout(()=>{},700)}if(ci===0&&back){back=false;pi=(pi+1)%placeholders.length}},110);
   document.addEventListener("visibilitychange",()=>{if(document.hidden)document.title="病床已经准备好了";else setTimeout(()=>document.title="人和医院在线档案馆",900)});
