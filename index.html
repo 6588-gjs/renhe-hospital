@@ -267,8 +267,7 @@
     const isNew=!found.has(key);found.add(key);save();
     $("#recordId").textContent=r.id;$("#recordTitle").textContent=r.title;$("#level").textContent=`异常等级 ${r.fear} / 5`;
     $("#recordBody").innerHTML=r.body;
-    let nextHtml="";if(r.next&&r.next.length){nextHtml=`<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line)"><div style="font:9px ui-monospace,monospace;color:#4b5048;letter-spacing:.14em;margin-bottom:10px">RELATED KEYWORDS / 关联检索词</div><div class="next-tags">${r.next.map(n=>`<button class="next-tag" data-query="${n}">${n}</button>`).join("")}</div></div>`}
-    $("#links").innerHTML=`CROSS-REFERENCE INDEX CORRUPTED / 请从档案正文自行识别检索词`+nextHtml;
+    $("#links").textContent="CROSS-REFERENCE INDEX CORRUPTED / 请从档案正文自行识别检索词";
     $("#artifact").innerHTML=artifact(r);result.classList.add("show");bindQueries();bindPhoto();search.value="";
     result.scrollIntoView({behavior:"smooth",block:"start"});
     if(isNew&&r.fear>=4)setTimeout(()=>shock(r.fear,r.image),r.fear===5?700:1600);
