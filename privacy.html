@@ -1,11 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="index,follow">
-<meta name="description" content="《人和医院档案馆》隐私政策：纯离线单机，不收集任何个人信息，不申请联网等任何权限，仅本地存档。">
-<title>隐私政策 · 人和医院档案馆</title>
+<meta name="description" content="《人和医院档案馆》隐私政策：离线单机可玩、无账号无内购；v2.1.0 起含 TapADN 广告 SDK（激励视频/插屏，可跳过），新增网络权限与广告数据说明。">
+<title>人和医院档案馆 隐私政策 · 人和医院档案馆</title>
 <style>
   :root{--ink:#1f2321;--muted:#5d665f;--line:#d9ddd8;--bg:#f4f5f2;--paper:#fff;--accent:#7a1d1a;--warn:#7a5b16}
   *{box-sizing:border-box}
@@ -13,174 +13,140 @@
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif}
   .wrap{max-width:860px;margin:0 auto;padding:32px 20px 72px}
   header{border-bottom:3px solid var(--accent);padding-bottom:20px;margin-bottom:8px}
-  h1{font-size:26px;line-height:1.35;margin:0 0 10px;letter-spacing:.02em}
+  h1{font-size:27px;line-height:1.35;margin:0 0 10px;letter-spacing:.02em}
   .meta{margin:0;color:var(--muted);font-size:13px;line-height:1.9}
-  .meta b{color:var(--ink);font-weight:600}
   .toc{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:24px 0 8px}
   .toc p{margin:0 0 8px;font-size:13px;color:var(--muted);letter-spacing:.08em}
-  .toc ol{margin:0;padding-left:22px;columns:2;column-gap:28px;font-size:14px;line-height:1.9}
+  .toc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:28px;font-size:14px;line-height:1.9}
   .toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--line)}
   .toc a:hover{color:var(--accent)}
-  section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin-top:18px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-top:18px}
   h2{font-size:19px;margin:0 0 14px;padding-left:12px;border-left:4px solid var(--accent);line-height:1.4}
+  h3{font-size:16px;margin:18px 0 10px;color:var(--accent)}
   p{margin:0 0 12px}
-  ol,ul{margin:0 0 14px;padding-left:22px}
+  ol,ul{margin:0 0 14px;padding-left:24px}
   li{margin:6px 0}
   code{font:13px/1.6 ui-monospace,Consolas,monospace;background:#eceee9;padding:1px 6px;border-radius:4px;word-break:break-all}
-  .ph{color:var(--warn);font-weight:600}
-  .note{background:#fbf7ea;border:1px solid #e8dcb8;border-radius:8px;padding:14px 18px;margin:16px 0;font-size:14px;color:#5e4a12}
-  .lead{font-size:15px;background:#f6f7f4;border-left:3px solid var(--line);padding:14px 18px;border-radius:0 8px 8px 0;color:#3c443d}
-  footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center;line-height:1.9}
   a{color:var(--accent)}
-  @media (max-width:600px){
-    .wrap{padding:22px 14px 56px}
-    section{padding:20px 18px}
-    h1{font-size:21px}
-    .toc ol{columns:1}
-  }
-  @media print{body{background:#fff}section,.toc{border-color:#ccc;box-shadow:none;break-inside:avoid;page-break-inside:avoid}.toc{display:none}}
+  footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center;line-height:1.9}
+  @media (max-width:600px){.wrap{padding:22px 14px 56px}section{padding:18px}h1{font-size:21px}.toc ul{columns:1}}
+  @media print{body{background:#fff}section,.toc{border-color:#ccc;break-inside:avoid}.toc{display:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <h1>人和医院档案馆隐私政策</h1>
-  <p class="meta"><b>生效日期：</b>2026年10月23日　　<b>更新日期：</b>2026年10月23日<br>
-  <b>适用产品：</b>安卓应用《人和医院档案馆》，包名 <code>com.renhe.archive.game</code>，版本 2.0.0<br>
-  <b>运营者：</b><span class="ph">游鲸（个人开发者）</span>　　<b>联系邮箱：</b><span class="ph">15876722889@139.com</span></p>
+<h1>人和医院档案馆 隐私政策</h1>
+
 </header>
-
-<nav class="toc" aria-label="目录">
-  <p>目 录</p>
-  <ol>
-    <li><a href="#s1">摘要</a></li>
-    <li><a href="#s2">我们收集哪些信息</a></li>
-    <li><a href="#s3">Android 权限说明</a></li>
-    <li><a href="#s4">本地存储说明</a></li>
-    <li><a href="#s5">第三方共享、转让与公开披露</a></li>
-    <li><a href="#s6">未成年人保护与适龄提示</a></li>
-    <li><a href="#s7">数据安全</a></li>
-    <li><a href="#s8">你的权利</a></li>
-    <li><a href="#s9">本政策的更新</a></li>
-    <li><a href="#s10">运营者信息与联系方式</a></li>
-    <li><a href="#s11">其他</a></li>
-  </ol>
-</nav>
-
-<section id="s1">
-  <h2>一、摘要</h2>
-  <p class="lead">《人和医院档案馆》（以下简称“本游戏”）是一款<b>纯离线单机</b>游戏。本游戏<b>无账号、无内购、无广告</b>，不要求注册账号，不收集、不上传、不共享任何个人信息，不接入任何第三方 SDK，不申请包括联网在内的任何 Android 权限。游玩进度与设置仅以本地缓存（localStorage）形式保存在你的设备上，可随时通过游戏内“重置”功能或卸载应用清除。</p>
+<nav class="toc" aria-label="目录"><p>目 录</p><ul><li><a href="#s1">一、摘要</a></li>
+<li><a href="#s2">二、我们收集哪些信息</a></li>
+<li><a href="#s3">三、Android 权限说明</a></li>
+<li><a href="#s4">四、本地存储说明</a></li>
+<li><a href="#s5">五、第三方 SDK 与共享</a></li>
+<li><a href="#s6">六、个性化广告与关闭方式</a></li>
+<li><a href="#s7">七、未成年人保护与适龄提示</a></li>
+<li><a href="#s8">八、数据安全</a></li>
+<li><a href="#s9">九、你的权利</a></li>
+<li><a href="#s10">十、本政策的更新</a></li>
+<li><a href="#s11">十一、运营者信息与联系方式</a></li>
+<li><a href="#s12">十二、其他</a></li></ul></nav>
+<section>
+<ul>
+<li>生效日期：2026年10月24日</li>
+<li>更新日期：2026年10月24日</li>
+<li>适用产品：安卓应用《人和医院档案馆（TapTap 测试版）》（包名 <code>game.taptap.renhe.archive</code>）与《人和医院档案馆》（包名 <code>com.renhe.archive.game</code>），版本 2.1.0 及以上</li>
+<li>运营者：【开发者 / 厂商名称，待填写】</li>
+<li>联系邮箱：15876722889@139.com</li>
+</ul>
+<h2 id="s1">一、摘要</h2>
+<p>《人和医院档案馆》（以下简称"本游戏"）的核心玩法完全离线，无账号、无内购。自 <b>v2.1.0</b> 起，本游戏接入 <b>TapADN 广告 SDK</b>，用于展示少量可选广告（激励视频与插屏），因此新增联网权限；广告均为可选、可跳过，<b>不影响结局与结局图鉴</b>。</p>
+<p>若你在首次启动的隐私同意弹窗中选择不同意，我们不会初始化广告 SDK、不会展示广告，也不会进行广告相关的网络请求；游戏的检索、档案、层级解锁、结局与图鉴仍可正常游玩（仅"看广告获得线索"功能不可用）。</p>
+<h2 id="s2">二、我们收集哪些信息</h2>
+<h3>2.1 游戏本体</h3>
+<p>游戏本体<b>不收集任何个人信息</b>：不需要账号，不收集姓名、手机号、身份证号、邮箱、地址等身份信息；不读取位置、通讯录、短信、通话记录、相册、文件、麦克风、摄像头、剪贴板或传感器数据。游玩进度与设置仅保存在你的设备本地（见第六条）。</p>
+<h3>2.2 TapADN 广告 SDK 收集的信息</h3>
+<p>只有在<b>你同意隐私政策并实际触发广告请求</b>时，TapADN 广告 SDK 才会收集下列信息，用于广告展示、频次控制、反作弊、效果归因与结算：</p>
+<ol>
+<li>设备标识符：OAID（匿名设备标识符）；在部分系统版本上可能使用 Android ID 等替代标识；</li>
+<li>设备信息：设备型号、制造商、操作系统版本、屏幕分辨率与像素密度、语言与国家/地区、应用包名与版本；</li>
+<li>网络信息：网络类型与连接状态、IP 地址、运营商信息（用于广告请求与区域合规）；</li>
+<li>广告交互信息：广告请求、展示、点击、关闭、完整观看等事件记录；</li>
+<li>运行与诊断信息：SDK 运行日志、错误与性能诊断信息（用于保障广告服务稳定）。</li>
+</ol>
+<p>上述信息<b>不用于识别你的真实身份</b>，我们也不会将其与你的姓名、手机号等身份信息关联。</p>
+<h3>2.3 我们不会收集的信息</h3>
+<p>本游戏不收集位置信息、通讯录、短信、通话记录、相册、文件、麦克风、摄像头、剪贴板、传感器等任何设备数据；不收集你的账号密码或支付信息（本游戏无账号、无内购）。</p>
+<h2 id="s3">三、Android 权限说明</h2>
+<p>本游戏安装包声明以下 Android 权限：</p>
+<ul>
+<li><b>网络权限</b>：<code>INTERNET</code>（访问网络）与 <code>ACCESS_NETWORK_STATE</code>（读取网络状态）。<b>仅用于 TapADN 广告请求、广告素材加载与网络状态判断</b>；游戏核心玩法不依赖网络，断网或飞行模式下仍可正常游玩（广告不可用）。</li>
+<li>本游戏<b>不申请</b>以下权限：存储（读写外部存储）、定位、相机、麦克风、通讯录、电话、短信、日历、身体传感器、后台弹窗、安装未知应用（<code>REQUEST_INSTALL_PACKAGES</code>）、查询已安装应用（<code>QUERY_ALL_PACKAGES</code>）等。</li>
+</ul>
+<p>你在手机"应用信息 - 权限"中看到的权限列表仅有上述网络相关权限，属于正常现象。</p>
+<h2 id="s4">四、本地存储说明</h2>
+<p>本游戏使用 Android WebView 的本地缓存（localStorage）保存游玩数据：已解锁档案与隐藏物证、当前封存层级与已解锁结局、环境音/惊吓强度设置、检索错误次数等统计。上述数据仅存放于本机应用私有目录，不包含个人信息，不会上传。</p>
+<p>TapADN 广告 SDK 可能在本机缓存广告素材、广告配置或频次控制信息，用于减少重复请求与提升加载速度；相关缓存的清理方式与 SDK 数据权利见第六、八条。</p>
+<p>你可以通过游戏内"重置"、系统"清除应用数据"或卸载本游戏清除本地数据。</p>
+<h2 id="s5">五、第三方 SDK 与共享</h2>
+<p>本游戏接入的第三方 SDK 如下：</p>
+<ul>
+<li><b>SDK 名称</b>：TapADN 广告 SDK（Dirichlet Ad，SDK 版本 5.3.x）</li>
+<li><b>开发方/运营方</b>：上海艾得蒽数字科技有限公司</li>
+<li><b>收集信息</b>：见第二条 2.2 款</li>
+<li><b>使用目的</b>：广告请求与展示、频次控制、反作弊、广告效果归因与结算、保障广告服务稳定</li>
+<li><b>共享对象</b>：为实现广告竞价与投放，TapADN 可能将必要的设备标识符、广告请求与交互信息共享给<b>穿山甲、优量汇等广告联盟/广告主</b>；共享以广告投放与结算所必需为限</li>
+<li><b>隐私政策</b>：TapADN/Dirichlet 平台 <a href="https://ssp.dirichlet.cn/">https://ssp.dirichlet.cn/</a>；穿山甲 <a href="https://www.csjplatform.com/">https://www.csjplatform.com/</a>；优量汇 <a href="https://e.qq.com/">https://e.qq.com/</a>（以各平台最新隐私政策为准）</li>
+</ul>
+<p>除上述广告 SDK 外，本游戏<b>未接入</b>统计、崩溃上报、推送、登录、支付、社交分享等其他第三方 SDK。</p>
+<p>你在 TapTap 平台内浏览、预约、下载、评论本游戏时，TapTap 客户端与网站会按照 TapTap 自身的《隐私政策》处理相关平台数据；该等处理由 TapTap 负责，与本游戏无关。</p>
+<h2 id="s6">六、个性化广告与关闭方式</h2>
+<ol>
+<li><b>广告可选择性</b>：激励视频仅在玩家主动点击"看广告获得线索"时播放；插屏仅在层级解锁等场景、且距上次插屏不少于 120 秒时展示；广告均可跳过或关闭，广告失败/无广告时不阻断游戏。</li>
+<li><b>关闭个性化推荐（任选其一）</b>：可在游戏内"设置 → 广告与隐私"开关关闭（如版本提供）；或在 Android「设置 → 隐私 → 广告」中删除/重置广告 ID、关闭"个性化广告"；也可通过本政策末尾的联系邮箱提出关闭申请，我们将协调 SDK 方处理。</li>
+<li>关闭个性化推荐后，你仍可能看到<b>非个性化广告</b>（广告数量可能不变），这不影响游戏本体与结局。</li>
+</ol>
+<h2 id="s7">七、未成年人保护与适龄提示</h2>
+<ol>
+<li>本游戏为恐怖题材虚构作品，含恐怖氛围、惊吓音效与闪烁画面，并涉及火灾、死亡与医疗记录的虚构描写，建议 <b>16 岁以上</b>玩家体验；启动页与游戏内提供内容提示、"纯属虚构"声明与温和模式。</li>
+<li>本游戏无内购、无付费点、无诱导消费；广告可跳过且不影响结局与图鉴。未成年人体验时，建议在监护人知情并同意的前提下进行；如监护人要求关闭广告或个性化推荐，可通过本政策末尾的联系方式与我们联系。</li>
+<li>本游戏不收集你的姓名、联系方式等身份信息；广告 SDK 的设备信息处理见第二、五条。</li>
+</ol>
+<h2 id="s8">八、数据安全</h2>
+<ol>
+<li>游戏本体数据仅保存在本机应用沙盒内；卸载应用即清除。</li>
+<li>广告 SDK 的网络传输由其自身实现（通常使用 HTTPS/加密传输）；我们无法访问 SDK 与广告联盟之间的原始数据。</li>
+<li>由于本游戏无自建服务端，我们不存储你的个人信息。</li>
+</ol>
+<h2 id="s9">九、你的权利</h2>
+<ol>
+<li>你可以通过游戏内"重置"或卸载应用清除本地游玩数据。</li>
+<li>关于广告 SDK 处理的设备信息，你可以通过系统广告设置关闭个性化推荐，或通过本政策末尾的联系方式提出查询、删除、撤回同意等请求；我们将协调 SDK 开发方/联盟方在 15 个工作日内答复处理。</li>
+<li>若你不同意本政策或希望撤回同意，可停止使用并卸载本游戏，或在游戏设置中关闭广告相关功能（如版本提供）。</li>
+</ol>
+<h2 id="s10">十、本政策的更新</h2>
+<ol>
+<li>若本游戏功能或第三方 SDK 发生变化（如新增或更换广告 SDK），我们会在功能上线前更新本政策，并在游戏内与 TapTap 商店页面以显著方式提示。</li>
+<li>本政策更新后将在本页面发布最新版本并更新"更新日期"；重大变更会单独提示。</li>
+<li>若你不同意更新后的政策，可停止使用并卸载本游戏。</li>
+</ol>
+<h2 id="s11">十一、运营者信息与联系方式</h2>
+<ul>
+<li>运营者：【开发者 / 厂商名称，待填写】</li>
+<li>联系邮箱：15876722889@139.com</li>
+<li>其他联系方式：【QQ / 微信 / 客服渠道，待填写或删除】</li>
+<li>通信地址：【联系地址，待填写】</li>
+<li>APP 核准编号：【取得 APP 核准后填写，例如：×ICP备××××××××号-×A】</li>
+<li>公安联网备案号：【完成公安联网备案后填写】</li>
+</ul>
+<h2 id="s12">十二、其他</h2>
+<ol>
+<li>本政策为简体中文版本，以中文版本为准。</li>
+<li>本政策的解释与争议解决适用中华人民共和国法律（不含冲突法）。</li>
+<li>本游戏为离线单机游戏（广告功能可选联网），本政策页面主要用于 TapTap 平台上架信息展示与合规说明。</li>
+</ol>
 </section>
-
-<section id="s2">
-  <h2>二、我们收集哪些信息</h2>
-  <p><b>我们不收集任何个人信息。</b>具体而言：</p>
-  <ol>
-    <li>本游戏不需要账号，不收集姓名、手机号、身份证号、邮箱、地址等身份信息。</li>
-    <li>本游戏不收集设备信息，包括但不限于 IMEI、IMSI、MAC 地址、Android ID、OAID、序列号、设备型号、系统版本、分辨率、语言、时区等。</li>
-    <li>本游戏不收集位置信息、通讯录、短信、通话记录、相册、文件、麦克风、摄像头、剪贴板、传感器等任何设备数据。</li>
-    <li>本游戏不接入统计、崩溃上报、广告、推送、登录、支付、社交分享等第三方 SDK 或服务。</li>
-    <li>本游戏无服务端，不向任何服务器发送数据，也不存在日志上传行为。</li>
-  </ol>
-</section>
-
-<section id="s3">
-  <h2>三、Android 权限说明</h2>
-  <p>本游戏的安装包<b>不声明、不申请任何 Android 权限</b>，包括但不限于：</p>
-  <ul>
-    <li><b>网络权限</b>（<code>INTERNET</code>、<code>ACCESS_NETWORK_STATE</code>）：本游戏不申请。因此本游戏在系统层面无法主动联网，也没有任何联网功能。</li>
-    <li><b>存储权限</b>（<code>READ_EXTERNAL_STORAGE</code>、<code>WRITE_EXTERNAL_STORAGE</code> 等）：本游戏不申请。所有图片、页面与脚本均内置在安装包内，不会读写你的外部存储。</li>
-    <li><b>定位、相机、麦克风、通讯录、电话、短信、日历、身体传感器、后台弹窗</b>等权限：本游戏均不申请。</li>
-  </ul>
-  <div class="note">你在手机“应用信息 - 权限”中看到的权限列表为空，属于正常现象。本游戏仅在被你主动点击后播放程序生成的本地环境音（使用系统音频输出，不需要任何权限）。</div>
-</section>
-
-<section id="s4">
-  <h2>四、本地存储说明</h2>
-  <p>本游戏使用 Android WebView 的本地缓存（localStorage）保存以下<b>游玩数据</b>，它们仅存放于本机应用私有目录：</p>
-  <ol>
-    <li>已解锁档案与隐藏物证的名称（用于展示调查进度）；</li>
-    <li>当前封存层级与已解锁结局（用于结局图鉴）；</li>
-    <li>游戏设置：环境音开关、惊吓强度（标准 / 温和）；</li>
-    <li>统计数据：检索错误次数、开始游玩时间等用于流程判断的计数。</li>
-  </ol>
-  <p>上述数据不包含任何个人信息，不会上传、不会共享，也不构成个人信息收集。你可以通过以下方式清除：</p>
-  <ul>
-    <li>游戏内顶栏或设置中的“重置”按钮（清除本次存档并重新开始）；</li>
-    <li>在系统设置中清除应用数据；</li>
-    <li>卸载本游戏（本地缓存随应用数据一并删除）。</li>
-  </ul>
-</section>
-
-<section id="s5">
-  <h2>五、第三方共享、转让与公开披露</h2>
-  <ol>
-    <li>本游戏不收集个人信息，因此不存在向第三方共享、转让或公开披露个人信息的行为。</li>
-    <li>本游戏不含任何第三方 SDK、广告联盟、统计平台或社交插件。</li>
-    <li>你在 TapTap 平台内浏览、预约、下载、评论本游戏时，TapTap 客户端与网站会按照 TapTap 自身的《隐私政策》处理相关平台数据。该等处理由 TapTap 平台负责，与本游戏无关，也不在本游戏的能力范围内。</li>
-  </ol>
-</section>
-
-<section id="s6">
-  <h2>六、未成年人保护与适龄提示</h2>
-  <ol>
-    <li>本游戏内容包含恐怖氛围、惊吓音效与闪烁画面，并涉及火灾、死亡与医疗记录的<b>虚构描写</b>，建议 <b>16 岁以上</b>玩家体验。启动页会展示内容提示与“纯属虚构”声明，并提供“温和模式”（减弱惊吓时长、关闭震动与全屏反色闪帧）。</li>
-    <li>本游戏不含内购、广告、抽奖、充值、社交、联网对战等功能，不存在诱导消费或付费设计。</li>
-    <li>本游戏不收集任何信息，因此不会处理未成年人个人信息。若未成年人体验本游戏，建议在监护人知情并同意的前提下进行；监护人可随时通过“重置”或卸载清除本地进度。</li>
-    <li>若你对适龄提示或内容分级有疑问，可通过本政策末尾的联系方式与我们联系。</li>
-  </ol>
-</section>
-
-<section id="s7">
-  <h2>七、数据安全</h2>
-  <p>由于本游戏不收集、不传输、不存储任何个人信息，不存在个人信息泄露、篡改或丢失的风险。本地游玩数据受 Android 应用沙盒保护，仅本应用可访问；卸载应用即清除。</p>
-</section>
-
-<section id="s8">
-  <h2>八、你的权利</h2>
-  <ol>
-    <li>由于本游戏不收集个人信息，我们不持有你的个人信息，因此不存在查询、更正、删除、导出个人信息的需求。</li>
-    <li>你可以随时通过游戏内“重置”功能清除本地游玩数据，或通过卸载应用清除全部应用数据。</li>
-    <li>如你对本政策有任何疑问、意见或投诉，可通过本政策末尾的联系方式联系我们，我们将在 15 个工作日内答复。</li>
-  </ol>
-</section>
-
-<section id="s9">
-  <h2>九、本政策的更新</h2>
-  <ol>
-    <li>若本游戏未来新增联网、账号、内购、广告、统计等功能（目前没有，且暂无计划），我们会在功能上线前更新本政策，并在游戏内与 TapTap 商店页面以显著方式提示。</li>
-    <li>本政策更新后，将在本页面发布最新版本并更新“生效日期”。重大变更会单独提示。</li>
-    <li>若你不同意更新后的政策，可停止使用并卸载本游戏。</li>
-  </ol>
-</section>
-
-<section id="s10">
-  <h2>十、运营者信息与联系方式</h2>
-  <ul>
-    <li>运营者：<span class="ph">游鲸（个人开发者）</span></li>
-    <li>联系邮箱：<span class="ph">15876722889@139.com</span></li>
-    <li>其他联系方式：<span class="ph">TapTap 开发者账号：游鲸（ID 503205）</span></li>
-    <li>通信地址：<span class="ph">不适用（纯离线单机，无实体客服地址）</span></li>
-    <li>APP 核准编号：<span class="ph">暂未取得（纯离线单机、不联网；如后续取得将在本页更新）</span></li>
-    <li>公安联网备案号：<span class="ph">不适用（纯离线、不联网）</span></li>
-  </ul>
-</section>
-
-<section id="s11">
-  <h2>十一、其他</h2>
-  <ol>
-    <li>本政策为简体中文版本，以中文版本为准。</li>
-    <li>本政策的解释与争议解决适用中华人民共和国法律（不含冲突法）。</li>
-    <li>本游戏为纯离线单机应用，本政策页面主要用于 TapTap 平台上架信息展示与合规说明。</li>
-  </ol>
-</section>
-
-<footer>人和医院档案馆 · 版本 2.0.0 · 纯离线单机，不收集任何个人信息</footer>
+<footer>人和医院档案馆 · v2.1.0 · 隐私政策与用户协议适用于 game.taptap.renhe.archive 与 com.renhe.archive.game 两个变体</footer>
 </div>
 </body>
 </html>
-
-
-
-
-
